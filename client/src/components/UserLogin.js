@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 
-function UserLogin() {
+function UserLogin({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
 
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log('User logged in:', username);
-    setUsername('');
-    setPassword('');
+    const successfulLogin = onLogin(username, password);
+    
+    if (successfulLogin) {
+      setUsername('');
+      setPassword('');
+      setLoginError('');
+    } else {
+      setLoginError('Invalid username or password.');
+    }
   };
 
   return (
     <div>
       <h2>Login</h2>
+      {loginError && <p style={{ color: 'red' }}>{loginError}</p>} {/* Display error if present */}
       <form onSubmit={handleLogin}>
         <label>
           Username:

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-function UserRegister() {
+function UserRegister({ onRegister }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleRegister = (event) => {
     event.preventDefault();
-    console.log('User registered:', username);
+    onRegister(username, password);
     setUsername('');
     setPassword('');
   };
