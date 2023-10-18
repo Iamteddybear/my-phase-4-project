@@ -13,7 +13,7 @@ function App() {
     { id: 3, name: "Salad", ingredients: ["Lettuce", "Tomatoes", "Cucumber"], instructions: "Chop veggies. Mix. Serve." }
   ]);
 
-  // User state and functions
+  
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -36,7 +36,7 @@ function App() {
     setCurrentUser(null);
   };
 
-  // Recipe functions
+  
   const addRecipe = (recipeData) => {
     const newRecipe = {
       id: recipes.length + 1, 
