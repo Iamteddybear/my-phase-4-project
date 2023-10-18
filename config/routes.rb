@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  root 'fallback#index'
-  
-  resources :users, only: [:index, :show]
+  root 'users#new'
+
+  resources :users, only: [:index, :show, :new, :create]
   resources :recipes
   get '/hello', to: 'application#hello_world'
-
 
   get '*path',
       to: 'fallback#index',
